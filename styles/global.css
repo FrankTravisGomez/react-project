@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind componetns;
+@tailwind untilities;
+
+html,
+body{
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "burtons";
+}

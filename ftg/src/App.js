@@ -16,6 +16,9 @@ function App() {
 
     return (
         <div>
+            <head>
+                <title>Travis Gomez Portfolio</title>
+            </head>
             My name is:
             <h1>{name}</h1>
             <h1>{time}</h1>
