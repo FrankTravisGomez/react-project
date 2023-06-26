@@ -1,6 +1,6 @@
-import ReactDom from "react-dom/client";
-
 import React, { useState, useEffect } from 'react';
+import ProfileCard from './profileCard';
+
 function App() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
 
@@ -16,12 +16,15 @@ function App() {
 
     return (
         <div>
-            <head>
-                <title>Travis Gomez Portfolio</title>
-            </head>
             My name is:
             <h1>{name}</h1>
             <h1>{time}</h1>
+            <div>
+                Personal digital assistant
+                <ProfileCard title="Alexa" handle="@alexa" />
+                <ProfileCard title="Cortana" handle="@cortana" />
+                <ProfileCard title="Siri" handle="@siri" />
+            </div>
         </div>
     );
 }
