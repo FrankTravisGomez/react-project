@@ -25,18 +25,29 @@ function App() {
             <h1>{name}</h1>
             <h1>{time}</h1>
             <div>
-                <div>Personal digital assistant</div>
+                <section className="hero is-primary">
+                    <div className="hero-body">
+                        <p className="title">Personal digital assistant</p>
+                    </div>
+                </section>
+
                 <div className="container">
                     <section className="section">
                         <div className="columns">
                             <div className="column is-3">
-                                <ProfileCard title="Alexa" handle="@alexa" image={AlexaImage} />
+                                <ProfileCard title="Alexa" handle="@alexa" image={AlexaImage}
+                                             description="made by the Amazon gods!"
+                                />
                             </div>
                             <div className="column is-3">
-                                <ProfileCard title="Cortana" handle="@cortana" image={CortanaImage} />
+                                <ProfileCard title="Cortana" handle="@cortana" image={CortanaImage}
+                                             description="made by microsoft..."
+                                />
                             </div>
                             <div className="column is-3">
-                                <ProfileCard title="Siri" handle="@siri" image={SiriImage} />
+                                <ProfileCard title="Siri" handle="@siri" image={SiriImage}
+                                             description="Another amazing product designed by Apple."
+                                />
                             </div>
                         </div>
                     </section>
