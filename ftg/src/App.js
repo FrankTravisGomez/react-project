@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProfileCard from './profileCard';
+import AlexaImage from './images/alexa.png';
+import CortanaImage from './images/cortana.png';
+import SiriImages from './images/siri.png';
 
 function App() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -21,9 +24,9 @@ function App() {
             <h1>{time}</h1>
             <div>
                 Personal digital assistant
-                <ProfileCard title="Alexa" handle="@alexa" />
-                <ProfileCard title="Cortana" handle="@cortana" />
-                <ProfileCard title="Siri" handle="@siri" />
+                <ProfileCard title="Alexa" handle="@alexa" image={AlexaImage}/>
+                <ProfileCard title="Cortana" handle="@cortana" image={CortanaImage}/>
+                <ProfileCard title="Siri" handle="@siri" image={SiriImages}/>
             </div>
         </div>
     );
