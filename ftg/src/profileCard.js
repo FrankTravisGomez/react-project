@@ -14,6 +14,12 @@ function ProfileCard({title, handle, image, description, link}){
                 </div>
                 <div className="content">{description}</div>
             </div>
+
+            {link && (
+            <div className="card-footer">
+                <a href={link}>Visit Profile</a>
+            </div>
+            )}
         </div>
     );
 }
