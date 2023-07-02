@@ -37,6 +37,7 @@ function App() {
                             <div className="column is-3">
                                 <ProfileCard title="Alexa" handle="@alexa" image={AlexaImage}
                                              description="made by the Amazon gods!"
+                                             link="https://amazon.com"
                                 />
                             </div>
                             <div className="column is-3">
