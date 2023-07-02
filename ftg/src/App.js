@@ -49,6 +49,7 @@ function App() {
                             <div className="column is-3">
                                 <ProfileCard title="Siri" handle="@siri" image={SiriImage}
                                              description="Another amazing product designed by Apple."
+                                             link="https://apple.com"
                                 />
                             </div>
                         </div>
