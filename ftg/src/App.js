@@ -43,6 +43,7 @@ function App() {
                             <div className="column is-3">
                                 <ProfileCard title="Cortana" handle="@cortana" image={CortanaImage}
                                              description="made by microsoft..."
+                                             link="https://xbox.com"
                                 />
                             </div>
                             <div className="column is-3">
