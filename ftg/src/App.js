@@ -8,7 +8,10 @@ import SiriImage from './images/siri.png';
 
 function App() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
-
+    const [searchQuery, setSearchQuery] = useState('');
+    const [sortOption, setSortOption] = useState('default');
+    const [currentPage, setCurrentPage] = useState(1);
+    const profilesPerPage = 6;
     useEffect(() => {
         const timer = setInterval(() => {
             setTime(new Date().toLocaleTimeString());
