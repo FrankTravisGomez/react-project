@@ -53,6 +53,29 @@ function App() {
         }
     ]
 
+    const filteredProfileCards = profileCards.filter((card)=>{
+        const {title, handle, description} = card;
+        const lowerCaseQuery = searchQuery.toLowerCase();
+        return(
+            title.toLowerCase().includes(lowerCaseQuery) ||
+            handle.toLowerCase().includes(lowerCaseQuery)  ||
+            description.toLowerCase().includes(lowerCaseQuery)
+        );
+    });
+
+    const sortedProfileCards = [filteredProfileCards].sort((a,b)=>{
+        if(sortOption === 'alphabetical'){
+            return a.title.localeCompare(b.title);
+        }
+        return 0;
+    });
+
+    const indexOfLastProfile = currentPage * profilesPerPage;
+    const indexOfFirstProfile = indexOfLastProfile - profilesPerPage;
+    const paginatedProfileCards = sortedProfileCards.slice(
+        indexOfFirstProfile,
+        indexOfLastProfile
+    );
 
     return (
         <div>
