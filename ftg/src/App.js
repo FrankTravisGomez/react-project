@@ -21,6 +21,38 @@ function App() {
     }, []);
 
     const name = 'Trav';
+    const handleSort = (option) => {
+        setSortOption(option);
+    };
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const profileCards =[
+        {
+            title: 'Alexa',
+            handle: '@alexa',
+            image: AlexaImage,
+            description: 'made by the Amazon gods!',
+            link: 'https://amazon.com',
+        },
+        {
+            title: 'Cortana',
+            handle: '@cortana',
+            image: CortanaImage,
+            description: 'made by microsoft...',
+            link: 'https://xbox.com',
+        },
+        {
+            title: 'Siri',
+            handle: '@siri',
+            image: SiriImage,
+            description: 'Another amazing product designed by Apple.',
+            link: 'https://apple.com'
+        }
+    ]
+
 
     return (
         <div>
