@@ -5,13 +5,13 @@ import AlexaImage from './images/alexa.png';
 import CortanaImage from './images/cortana.png';
 import SiriImage from './images/siri.png';
 
-
 function App() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     const [searchQuery, setSearchQuery] = useState('');
     const [sortOption, setSortOption] = useState('default');
     const [currentPage, setCurrentPage] = useState(1);
     const profilesPerPage = 6;
+
     useEffect(() => {
         const timer = setInterval(() => {
             setTime(new Date().toLocaleTimeString());
@@ -21,6 +21,7 @@ function App() {
     }, []);
 
     const name = 'Trav';
+
     const handleSort = (option) => {
         setSortOption(option);
     };
@@ -29,7 +30,7 @@ function App() {
         setCurrentPage(pageNumber);
     };
 
-    const profileCards =[
+    const profileCards = [
         {
             title: 'Alexa',
             handle: '@alexa',
@@ -49,24 +50,25 @@ function App() {
             handle: '@siri',
             image: SiriImage,
             description: 'Another amazing product designed by Apple.',
-            link: 'https://apple.com'
-        }
-    ]
+            link: 'https://apple.com',
+        },
+    ];
 
-    const filteredProfileCards = profileCards.filter((card)=>{
-        const {title, handle, description} = card;
+    const filteredProfileCards = profileCards.filter((card) => {
+        const { title, handle, description } = card;
         const lowerCaseQuery = searchQuery.toLowerCase();
-        return(
+        return (
             title.toLowerCase().includes(lowerCaseQuery) ||
-            handle.toLowerCase().includes(lowerCaseQuery)  ||
+            handle.toLowerCase().includes(lowerCaseQuery) ||
             description.toLowerCase().includes(lowerCaseQuery)
         );
     });
 
-    const sortedProfileCards = [filteredProfileCards].sort((a,b)=>{
-        if(sortOption === 'alphabetical'){
+    const sortedProfileCards = [...filteredProfileCards].sort((a, b) => {
+        if (sortOption === 'alphabetical') {
             return a.title.localeCompare(b.title);
         }
+        // Add more sorting options as needed
         return 0;
     });
 
@@ -93,22 +95,40 @@ function App() {
                     <section className="section">
                         <div className="columns">
                             <div className="column is-3">
-                                <ProfileCard title="Alexa" handle="@alexa" image={AlexaImage}
-                                             description="made by the Amazon gods!"
-                                             link="https://amazon.com"
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
                                 />
-                            </div>
-                            <div className="column is-3">
-                                <ProfileCard title="Cortana" handle="@cortana" image={CortanaImage}
-                                             description="made by microsoft..."
-                                             link="https://xbox.com"
-                                />
-                            </div>
-                            <div className="column is-3">
-                                <ProfileCard title="Siri" handle="@siri" image={SiriImage}
-                                             description="Another amazing product designed by Apple."
-                                             link="https://apple.com"
-                                />
+                                <select
+                                    value={sortOption}
+                                    onChange={(e) => handleSort(e.target.value)}
+                                >
+                                    <option value="default">Default</option>
+                                    <option value="alphabetical">Alphabetical</option>
+                                    {/* Add more sort options as needed */}
+                                </select>
+                                {paginatedProfileCards.map((card) => (
+                                    <ProfileCard {...card} key={card.title} />
+                                ))}
+                                {profileCards.length > profilesPerPage && (
+                                    <div className="pagination">
+                                        {Array.from({
+                                            length: Math.ceil(
+                                                sortedProfileCards.length / profilesPerPage
+                                            ),
+                                        }).map((_, index) => (
+                                            <button
+                                                key={index}
+                                                className={index + 1 === currentPage ? 'active' : ''}
+                                                onClick={() => handlePageChange(index + 1)}
+                                            >
+                                                {index + 1}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </section>

@@ -1,9 +1,11 @@
-function ProfileCard({title, handle, image, description, link}){
+import React from 'react';
+
+function ProfileCard({ title, handle, image, description, link }) {
     return (
         <div className="card">
             <div className="card-image">
                 <figure className="image is-1by1">
-                    <img src={image} alt="pda logo"/>
+                    <img src={image} alt="pda logo" />
                 </figure>
             </div>
 
@@ -16,9 +18,9 @@ function ProfileCard({title, handle, image, description, link}){
             </div>
 
             {link && (
-            <div className="card-footer">
-                <a href={link}>Visit Profile</a>
-            </div>
+                <div className="card-footer">
+                    <a href={link}>Visit Profile</a>
+                </div>
             )}
         </div>
     );
